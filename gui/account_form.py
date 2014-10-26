@@ -9,7 +9,7 @@ class AccountForm:
 
         self.gtk = gtk
 
-    def factoryForm(self):
+    def factory_form(self):
         container = self.gtk.VBox()
 
         """
