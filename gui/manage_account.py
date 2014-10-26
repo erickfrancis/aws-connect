@@ -1,13 +1,12 @@
 class ManageAccount:
     def add_account(self, account_name):
-        form = self.accountForm().factoryForm()
+        form = self.accountForm().factory_form()
         form.show_all()
 
         label = self.gtk.Label()
         label.set_text(account_name)
 
-        self.tabs.append_page(form, label)
-        self.tabs.next_page()
+        self.get_tabs().append_page(form, label)
 
     def on_create_account(self, widget, event=None):
         message_dialog = self.gtk.MessageDialog(parent=None, flags=0, type=self.gtk.MESSAGE_QUESTION,
@@ -24,8 +23,12 @@ class ManageAccount:
 
         if response == self.gtk.RESPONSE_OK:
             self.add_account(name_account_entry.get_text())
+            self.get_tabs().next_page()
 
         message_dialog.destroy()
+
+    def get_tabs(self):
+        return self.tabs
 
     def __init__(self):
         import pygtk
