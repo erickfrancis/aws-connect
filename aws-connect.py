@@ -42,20 +42,7 @@ class AwsConnect:
         from gui.manage_account import ManageAccount
 
         manage_account = ManageAccount()
-
-        self.create_window(manage_account.get_container())
-
-    def create_window(self, container):
-        window = self.gtk.Window(self.gtk.WINDOW_TOPLEVEL)
-        window.set_position(self.gtk.WIN_POS_CENTER)
-        window.set_border_width(10)
-
-        window.connect("delete_event", lambda w, e: window.destroy())
-
-        window.add(container)
-
-        window.show_all()
-
+        manage_account.get_window_main().show_all()
 
 aws_connect = AwsConnect()
 
